@@ -14,9 +14,11 @@ class API {
         
         echo "API Initiation Beginning <br />";
 
-        // first we need to decipher the request
+        // check that proper values were provided for each required parameter
 
-        // then we need to load the proper endpoint
+        // decipher the request
+
+        // load the proper endpoint
 
         echo "API Initiation Finished <br />";
     }
