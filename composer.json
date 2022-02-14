@@ -1,0 +1,23 @@
+{
+    "name": "mattkurek/athena-api",
+    "description": "A lightweight and fast framework for creating APIs with PHP",
+    "require": {
+        "firebase/php-jwt": "*",
+        "cocur/slugify": "*",
+        "twilio/sdk": "*",
+        "guzzlehttp/guzzle": "*",
+        "phpmailer/phpmailer": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MattKurek\\AthenaAPI\\": "src/"
+        }
+    },
+
+    "authors": [
+        {
+            "name": "Matt Kurek",
+            "email": "me@mattkurek.com"
+        }
+    ]
+}
