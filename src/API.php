@@ -8,7 +8,10 @@ namespace MattKurek\AthenaAPI;
 class API {
 
     public function __construct(
-        
+        ?string $databaseHost,
+        ?string $databaseName,
+        ?string $databasePassword,
+        ?string $databaseUser,
     )
     {
         
