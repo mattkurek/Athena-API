@@ -16,9 +16,9 @@ class API {
 
         // check that proper values were provided for each required parameter
         
-        echo $endpointsFolder . '<br />';
+        echo 'Endpoints Location: ' . $endpointsFolder . '<br />';
 
-        
+
         // decipher the request
 
         // load the proper endpoint
