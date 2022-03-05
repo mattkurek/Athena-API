@@ -18,6 +18,7 @@ class API {
         
         echo 'Endpoints Location: ' . $endpointsFolder . '<br />';
 
+        
 
         // decipher the request
 
