@@ -15,6 +15,7 @@ class API {
         echo "API Initiation Beginning <br />";
 
         // check that proper values were provided for each required parameter
+        
         echo $endpointsFolder . '<br />';
 
         // decipher the request
