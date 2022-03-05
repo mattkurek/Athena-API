@@ -5,17 +5,17 @@ namespace MattKurek\AthenaAPI;
 /**
  *      used to initiate the web app
  */
-class API {
+class API
+{
 
     public function __construct(
         public string $endpointsFolder
-    )
-    {
-        
+    ) {
+
         echo "API Initiation Beginning <br />";
 
         // check that proper values were provided for each required parameter
-        
+
         echo $endpointsFolder . '<br />';
 
         // decipher the request
@@ -27,9 +27,5 @@ class API {
 
     public function __destruct()
     {
-        
-
-
     }
-
 }
