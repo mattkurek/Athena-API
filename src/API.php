@@ -18,6 +18,7 @@ class API {
         
         echo $endpointsFolder . '<br />';
 
+        
         // decipher the request
 
         // load the proper endpoint
