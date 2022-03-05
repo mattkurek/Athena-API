@@ -8,16 +8,14 @@ namespace MattKurek\AthenaAPI;
 class API {
 
     public function __construct(
-        ?string $databaseHost,
-        ?string $databaseName,
-        ?string $databasePassword,
-        ?string $databaseUser,
+        public string $endpointsFolder
     )
     {
         
         echo "API Initiation Beginning <br />";
 
         // check that proper values were provided for each required parameter
+        echo $endpointsFolder . '<br />';
 
         // decipher the request
 

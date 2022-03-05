@@ -42,9 +42,20 @@ class Database
     private $result = null;
     private $connected = false;
 
-    public ?int $number_deleted = null; // set after a DELETE query is ran
-    public ?int $number_updated = null; // set after an UPDATE query is ran
-    public ?int $insertId = null; // set after an INSERT query is ran
+    /** 
+     *      @var int updated after a DELETE query is ran
+     */
+    public ?int $number_deleted = null;
+
+    /** 
+     *      @var int updated after a UPDATE query is ran
+     */
+    public ?int $number_updated = null;
+
+    /** 
+     *      @var int updated after a INSERT query is ran
+     */
+    public ?int $insertId = null;
 
     public $error_message = ''; // set default state
 
@@ -484,7 +495,7 @@ class Database
     }
 
 
-  /*
+    /*
      *
      *          Function for inserting a Single Row Into Database
      * 
@@ -503,7 +514,6 @@ class Database
             } else {
                 return false;
             }
-
         } catch (\Exception $e) {
 
             new \MattKurek\AthenaAPI\ErrorEvent(
