@@ -8,16 +8,21 @@ namespace MattKurek\AthenaAPI;
 class Router
 {
 
-    public function __construct() 
-    {
-        $this->fullPath = $_SERVER["REQUEST_URL"];
+    public array $parameters = [];
 
-        echo $this->fullPath . '<br />';
+    public function __construct()
+    {
+
+        // split the request path by slash marks and then filter out the blank strings 
+        foreach (explode("/", $_SERVER["REQUEST_URI"]) as $parameter) {
+            if ($parameter != "") {
+                $this->parameters[] = $parameter;
+            }
+        }
+
     }
 
     public function __destruct()
     {
-
     }
-    
 }

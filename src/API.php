@@ -28,19 +28,15 @@ class API
         string $endpointsFolder,
     ) {
 
-        echo "API Initiation Beginning <br />";
-
-        // set property values        
-        $this->endpointsFolder = $endpointsFolder;
-
         // initiate the Router object and decipher the client's request
         $this->router = new \MattKurek\AthenaAPI\Router();
 
-        $this->endpoint = new \MattKurek\AthenaAPI\Endpoint();
+        // load the endpoint file
+        $this->endpoint = new \MattKurek\AthenaAPI\Endpoint(
+            endpointsFolder: $endpointsFolder,
+            parameters: $this->router->parameters
+        );
 
-        // load the proper endpoint
-
-        echo "API Initiation Finished <br />";
     }
 
     public function __destruct()
