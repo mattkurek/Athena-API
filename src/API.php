@@ -3,27 +3,41 @@
 namespace MattKurek\AthenaAPI;
 
 /**
- *      used to initiate the web app
+ *      the API object is used to initiate the web app and serves as the parent object for the entire API's function
  */
 class API
 {
 
+    /** 
+     *      @property object endpoint
+     */
+    public object $endpoint;
+
+    /** 
+     *      @property string endpointsFolder is asdfa 
+     */
+    public string $endpointsFolder;
+
+    /** 
+     *      @property object router
+     */
+    public object $router;
+
+
     public function __construct(
-        public string $endpointsFolder
+        string $endpointsFolder,
     ) {
 
         echo "API Initiation Beginning <br />";
 
-        // check that proper values were provided for each required parameter
+        // set property values        
+        $this->endpointsFolder = $endpointsFolder;
 
-        echo $endpointsFolder . '<br />';
+        // initiate the Router object and decipher the client's request
+        $this->router = new \MattKurek\AthenaAPI\Router();
 
+        $this->endpoint = new \MattKurek\AthenaAPI\Endpoint();
 
-
-        // decipher the request
-
-
-        
         // load the proper endpoint
 
         echo "API Initiation Finished <br />";
