@@ -14,19 +14,18 @@ class API
     public object $endpoint;
 
     /** 
-     *      @property string endpointsFolder is asdfa 
-     */
-    public string $endpointsFolder;
-
-    /** 
-     *      @property object router
+     *      @property object the router object decipher's the requested URL path
      */
     public object $router;
 
-
+    /**
+     *      @param string endpointsFolder - the full file path to the folder containing endpoint scripts
+     */
     public function __construct(
         string $endpointsFolder,
     ) {
+
+        echo "API Initiation Beginning <br />";
 
         // initiate the Router object and decipher the client's request
         $this->router = new \MattKurek\AthenaAPI\Router();
@@ -37,6 +36,7 @@ class API
             parameters: $this->router->parameters
         );
 
+        echo "API Initiation Finished <br />";
     }
 
     public function __destruct()

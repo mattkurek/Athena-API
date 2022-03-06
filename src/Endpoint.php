@@ -11,8 +11,7 @@ class Endpoint
     public function __construct(
         private string $endpointsFolder,
         private array $parameters
-    ) 
-    {
+    ) {
 
         $endpoint = $endpointsFolder;
 
@@ -23,16 +22,11 @@ class Endpoint
             if (file_exists($endpoint . ".php")) {
 
                 require_once($endpoint . ".php");
-
-            } 
-
+            }
         }
-
     }
 
     public function __destruct()
     {
-
     }
-    
 }
