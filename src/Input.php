@@ -94,6 +94,8 @@ class Input
 
             // validate and sanitize the requested input data
 
+            return $requestedData;
+
         } catch (\Exception $e) {
 
             error_log($e);
