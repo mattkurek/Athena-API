@@ -82,4 +82,34 @@ class Headers {
 
     }
 
+    public static function allowMethod(string $httpMethod) {
+
+        $httpMethod = strtoupper($httpMethod);
+
+        if ($_SERVER["REQUEST_METHOD"] == $httpMethod) {
+
+        } else {
+
+        }
+
+        header("Access-Control-Allow-Methods: HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS");
+
+    }
+
+    /**
+     * 
+     *      technically HTTP_ORIGIN can be spoofed by the client, so this serves to protect users from XSS
+     * 
+     */
+    public static function allowOriginn() {
+
+        if (isset($_SERVER['HTTP_ORIGIN'])) {
+            // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
+            // you want to allow, and if so:
+            header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+
+        }
+
+    }
+
 }

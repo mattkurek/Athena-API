@@ -225,6 +225,7 @@ class Validate
             // sanitize the text and return it
             $string = filter_var($string, FILTER_SANITIZE_STRING);
             return ($string);
+            
         } catch (\Exception $e) {
 
             new \MattKurek\AthenaAPI\ErrorEvent(
