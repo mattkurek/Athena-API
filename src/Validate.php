@@ -321,6 +321,9 @@ class Validate
 
     /** 
      *      Description goes here...
+     * 
+     *      @param term 
+     * 
      *  
      */
     public static function isDataValid(mixed $term, string $dataType, string $errorName)
@@ -333,6 +336,5 @@ class Validate
         return true;
 
     }
-    
 
 }
