@@ -25,11 +25,11 @@ class API
 
         string $databaseHostEnvVar,
         string $databaseNameEnvVar,
-        string $databasePasswordEnvVar,
+        string $databasePassEnvVar,
         string $databaseUserEnvVar,
 
         string $endpointsFolder,
-        
+
     ) {
 
         // initiate the Router object and decipher the client's request
@@ -44,7 +44,7 @@ class API
         $GLOBALS['_ATHENA_DATABASE_'] = new Database(
             $databaseHostEnvVar,
             $databaseNameEnvVar,
-            $databasePasswordEnvVar,
+            $databasePassEnvVar,
             $databaseUserEnvVar
         );
 
