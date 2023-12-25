@@ -54,6 +54,10 @@ class Input
         }
     }
 
+    public static function Get() {
+        
+    }
+
     /**
      * 
      *      @param string $variableName - the name of the json variable that you wish to extract

@@ -6,7 +6,9 @@ class Validate
 {
 
     /** 
-     *      Description goes here...
+     *      Function used to determine if an object is an array.
+     *      Returns true if object is array.
+     *      Returns false if object is not an array.
      *  
      *      @param array 
      * 
@@ -21,8 +23,9 @@ class Validate
             if (is_array($array)) {
                 return $array;
             } else {
-                return false;
+                return null;
             }
+            
         } catch (\Exception $e) {
 
             new \MattKurek\AthenaAPI\ErrorEvent(
@@ -94,7 +97,7 @@ class Validate
             if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
                 return ($email);
             } else {
-                return false;
+                return null;
             }
         } catch (\Exception $e) {
             new \MattKurek\AthenaAPI\ErrorEvent(
@@ -125,7 +128,7 @@ class Validate
             if (!filter_var($float_number, FILTER_VALIDATE_FLOAT) === false) {
                 return ($float_number);
             } else {
-                return false;
+                return null;
             }
         } catch (\Exception $e) {
 
@@ -161,7 +164,7 @@ class Validate
                 if ($int_number == "0" || $int_number == 0) {
                     return 0;
                 } else {
-                    return false;
+                    return null;
                 }
             }
         } catch (\Exception $e) {
@@ -193,7 +196,7 @@ class Validate
             if (!filter_var($ip_address, FILTER_VALIDATE_IP) === false) {
                 return ($ip_address);
             } else {
-                return false;
+                return null;
             }
         } catch (\Exception $e) {
 
@@ -224,7 +227,12 @@ class Validate
 
             // sanitize the text and return it
             $string = filter_var($string, FILTER_SANITIZE_STRING);
-            return ($string);
+
+            if (is_string($string)) {
+                return $string;
+            } else {
+                return null;
+            }
             
         } catch (\Exception $e) {
 
@@ -259,7 +267,7 @@ class Validate
             if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
                 return ($url);
             } else {
-                return false;
+                return null;
             }
         } catch (\Exception $e) {
 
@@ -282,7 +290,7 @@ class Validate
      * 
      *      @return mixed 
      */
-    public static function isType($term, string $dataType, ?string $errorName = null)
+    public static function isType(mixed $term, string $dataType, ?string $errorName = null)
     {
 
         switch ($dataType) {
@@ -310,4 +318,20 @@ class Validate
                 break;
         }
     }
+
+    /** 
+     *      Description goes here...
+     *  
+     */
+    public static function isDataValid(mixed $term, string $dataType, string $errorName)
+    {
+
+        if (self::isType($term, $dataType, $errorName) == null) {
+            \MattKurek\AthenaAPI\Response::setError("Invalid data was provided for '" . $errorName . "', not of type '" . $dataType . "'");
+        }
+
+        return true;
+
+    }
+
 }
