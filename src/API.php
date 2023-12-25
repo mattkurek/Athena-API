@@ -25,8 +25,6 @@ class API
         string $endpointsFolder,
     ) {
 
-        echo "API Initiation Beginning <br />";
-
         // initiate the Router object and decipher the client's request
         $this->router = new \MattKurek\AthenaAPI\Router();
 
@@ -36,7 +34,6 @@ class API
             parameters: $this->router->parameters
         );
 
-        echo "API Initiation Finished <br />";
     }
 
     public function __destruct()
