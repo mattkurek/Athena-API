@@ -22,7 +22,14 @@ class API
      *      @param string endpointsFolder - the full file path to the folder containing endpoint scripts
      */
     public function __construct(
+
+        string $databaseHostEnvVar,
+        string $databaseNameEnvVar,
+        string $databasePasswordEnvVar,
+        string $databaseUserEnvVar,
+
         string $endpointsFolder,
+        
     ) {
 
         // initiate the Router object and decipher the client's request
@@ -32,6 +39,13 @@ class API
         $this->endpoint = new \MattKurek\AthenaAPI\Endpoint(
             endpointsFolder: $endpointsFolder,
             parameters: $this->router->parameters
+        );
+
+        $GLOBALS['_ATHENA_DATABASE_'] = new Database(
+            $databaseHostEnvVar,
+            $databaseNameEnvVar,
+            $databasePasswordEnvVar,
+            $databaseUserEnvVar
         );
 
     }

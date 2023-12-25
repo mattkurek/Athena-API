@@ -42,6 +42,12 @@ class Database
     private $result = null;
     private $connected = false;
 
+    private $databaseNameEnvVar = "";
+    private $databasePassEnvVar = "";
+    private $databaseUserEnvVar = "";
+    private $databaseHostEnvVar = "";
+
+
     /** 
      *      @var int updated after a DELETE query is ran
      */
@@ -65,7 +71,7 @@ class Database
 
         try {
 
-            return getenv(MYSQL_DATABASE_ENV_VAR);
+            return getenv($this->databaseNameEnvVar);
         } catch (\Exception $e) {
 
             // log any unexpected errors that may occur and return an error response
@@ -78,7 +84,7 @@ class Database
 
         try {
 
-            return getenv(MYSQL_HOST_ENV_VAR);
+            return getenv($this->databaseHostEnvVar);
         } catch (\Exception $e) {
 
             // log any unexpected errors that may occur and return an error response
@@ -91,7 +97,7 @@ class Database
 
         try {
 
-            return getenv(MYSQL_PASSWORD_ENV_VAR);
+            return getenv($this->databasePassEnvVar);
         } catch (\Exception $e) {
 
             // log any unexpected errors that may occur and return an error response
@@ -104,7 +110,7 @@ class Database
 
         try {
 
-            return getenv(MYSQL_USER_ENV_VAR);
+            return getenv($this->databaseUserEnvVar);
         } catch (\Exception $e) {
 
             // log any unexpected errors that may occur and return an error response
@@ -121,13 +127,19 @@ class Database
      *          Construct
      * 
      */
-    public function __construct()
+    public function __construct($databaseHostEnvVar, $databaseNameEnvVar, $databasePassEnvVar, $databaseUserEnvVar)
     {
 
         try {
 
+            $this->databaseHostEnvVar = $databaseHostEnvVar;
+            $this->databaseNameEnvVar = $databaseNameEnvVar;
+            $this->databasePassEnvVar = $databasePassEnvVar;
+            $this->databaseUserEnvVar = $databaseUserEnvVar;
+
             // initiate the database connection
             $this->connect();
+            
         } catch (\Exception $e) {
 
             new \MattKurek\AthenaAPI\ErrorEvent(
@@ -143,36 +155,6 @@ class Database
     }
 
 
-
-    public function __destruct()
-    {
-
-        try {
-
-            // first close the connection between this server and the sql server
-            $this->closeConnection();
-
-            // set all property to null to minimize any potential memory usage
-            foreach ($this as $key => $value) {
-                $this->$key = null;
-                unset($this->key);
-            }
-            unset($key);
-            unset($value);
-        } catch (\Exception $e) {
-
-
-            new \MattKurek\AthenaAPI\ErrorEvent(
-                message: "An unexpected error occured while attempting to destruct the database object",
-                class: __CLASS__,
-                exception: $e,
-                file: __FILE__,
-                line: __LINE__,
-                method: __METHOD__,
-                namespace: __NAMESPACE__,
-            );
-        }
-    }
 
 
 
