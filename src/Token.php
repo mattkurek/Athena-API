@@ -2,6 +2,7 @@
 
 namespace MattKurek\AthenaAPI;
 
+
 class Token {
 
     public static $SQL_TABLE = "Tokens";
