@@ -161,7 +161,6 @@ class User {
     }
 
 
-    
 
     public static function generatePasswordHash(string $password) {
 

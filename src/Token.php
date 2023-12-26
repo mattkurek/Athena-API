@@ -2,8 +2,6 @@
 
 namespace MattKurek\AthenaAPI;
 
-
-
 class Token {
 
     public static $SQL_TABLE = "Tokens";
@@ -11,7 +9,7 @@ class Token {
     public $id = "";
     public $created_at = "";
     
-    
+
     public $token_type = "";
     public $expires_at = "";
     public $user_id = "";
