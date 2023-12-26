@@ -1,6 +1,7 @@
 {
     "name": "mattkurek/athena-api",
     "description": "A lightweight and fast framework for creating APIs with PHP",
+    "version" : "v0.0.13",
     "require": {
         "firebase/php-jwt": "*",
         "cocur/slugify": "*",
