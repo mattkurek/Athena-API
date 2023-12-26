@@ -120,7 +120,14 @@ class Generate
         try {
 
             // use cocur/slugify to generate a slug
-            return (new \cocur\Slugify\Slugify)->slugify($text_to_slugify);
+
+            // use cocur/slugify to generate a slug
+
+            $slugify = new \Cocur\Slugify\Slugify();
+            $newslug = $slugify->slugify($text_to_slugify); // hello-world
+
+            return $newslug;
+        
         } catch (\Exception $e) {
 
             new \MattKurek\AthenaAPI\ErrorEvent(

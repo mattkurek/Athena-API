@@ -41,7 +41,9 @@ class API
             parameters: $this->router->parameters
         );
 
-        $GLOBALS['_ATHENA_DATABASE_'] = new Database(
+        $GLOBALS["API_DOMAIN"] = "https://hq.mattkurek.com/";
+
+        $GLOBALS['_ATHENA_DATABASE_'] = new \MattKurek\AthenaAPI\Database(
             $databaseHostEnvVar,
             $databaseNameEnvVar,
             $databasePassEnvVar,

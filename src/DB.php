@@ -111,11 +111,11 @@ class DB {
      *      Returns the ID of the most recently inserted data entry in the global database
      * 
      */
-    public static function insertId() {
+    public static function insertID() {
 
         try {
 
-            return $GLOBALS['_ATHENA_DATABASE_']->insertId;
+            return $GLOBALS['_ATHENA_DATABASE_']->insertID;
 
         } catch (\Exception $e) {
 
