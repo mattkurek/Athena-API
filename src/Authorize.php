@@ -3,6 +3,7 @@
 namespace MattKurek\AthenaAPI;
 
 
+
 class Authorize {
 
     public static function requireToken(string $token_type) {
