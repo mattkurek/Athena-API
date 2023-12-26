@@ -160,7 +160,9 @@ class User {
 
     }
 
+
     
+
     public static function generatePasswordHash(string $password) {
 
         $password_hash = password_hash($password, PASSWORD_ARGON2I);

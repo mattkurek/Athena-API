@@ -11,6 +11,7 @@ class Token {
     public $id = "";
     public $created_at = "";
     
+    
     public $token_type = "";
     public $expires_at = "";
     public $user_id = "";
